@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── 트리님의 원본 색상 및 스타일 100% 동일 ── */
+    /* ── 트리님의 원본 CSS (100% 동일) ── */
     :root {
       --bg:         #FAF7F2;
       --section-bg: #F0EBE1;
@@ -40,26 +40,31 @@
     .intro-card p { color: var(--text-sub); font-size: 14.5px; line-height: 1.85; }
     .info-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
     .info-row { display: flex; align-items: flex-start; padding: 14px 20px; gap: 16px; border-bottom: 1px solid #EDE4D8; }
+    .info-row:last-child { border-bottom: none; }
     .info-label { font-size: 12px; color: var(--terra); font-weight: 500; min-width: 64px; }
     .info-value { font-size: 14px; color: var(--text-main); flex: 1; }
     .session-title { font-family: 'Noto Serif KR', serif; font-size: 18px; color: var(--text-main); margin: 36px 0 4px; }
+    .session-hint { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
     .session-scroll { display: flex; gap: 10px; overflow-x: auto; margin: 0 -20px; padding: 4px 20px 16px; }
-    .session-card { flex-shrink: 0; width: 170px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .session-card { flex-shrink: 0; width: 170px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; }
     .session-card.card-zero { border-color: var(--olive-light); background: #F5F7F2; }
     .sc-num { font-size: 11px; color: var(--text-light); }
     .sc-stage { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 600; color: var(--terra); }
+    .session-card.card-zero .sc-stage { color: var(--olive); }
     .sc-name { font-size: 13px; color: var(--text-main); }
     .payment-box { background: linear-gradient(135deg, #F5EDE3, #EDE4D8); border-radius: 12px; padding: 20px 22px; margin: 24px 0; }
     .p-label { font-size: 12px; color: var(--terra); margin-bottom: 8px; }
-    .p-amount { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; }
+    .p-amount { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; color: var(--text-main); }
+    .p-account { font-size: 14px; color: var(--text-sub); margin-top: 4px; }
     .form-group { margin-bottom: 24px; }
     label { display: block; font-size: 13.5px; font-weight: 500; margin-bottom: 8px; }
-    .required { color: var(--terra); margin-left: 3px; }
+    label .required { color: var(--terra); margin-left: 3px; }
     input[type="text"], input[type="tel"], input[type="email"], textarea { width: 100%; background: var(--input-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 13px 16px; font-size: 14px; }
-    .radio-group { display: flex; flex-direction: column; gap: 10px; }
-    .radio-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
-    .submit-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 12px; padding: 17px; font-size: 16px; cursor: pointer; margin-top: 8px; }
-    footer { background: #2C1F14; color: rgba(250,247,242,0.55); text-align: center; padding: 36px 20px; font-size: 13px; }
+    .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .radio-item, .check-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; padding: 4px 0; }
+    .radio-item input, .check-item input { width: 18px; height: 18px; accent-color: var(--terra); margin-top: 2px; }
+    .submit-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 12px; padding: 17px; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; margin-top: 12px; }
+    footer { background: #2C1F14; color: rgba(250,247,242,0.55); text-align: center; padding: 48px 24px; font-size: 13px; line-height: 1.6; }
     footer a { color: var(--olive-light); text-decoration: none; }
     #hidden_iframe { display: none; }
   </style>
@@ -76,37 +81,40 @@
 <div class="container">
   <div class="section">
     <div class="intro-card">
-      <p>십우도와 타로를 활용한 아들러 성장프로그램 '나비' 신청서입니다.</p>
-      <p>지금 여기, 이미 충분한 마음자리를 향합니다.</p>
+      <p>십우도와 타로를 활용한 아들러 성장프로그램 '다시 태어나는 나, 나비'는 총 11회기 진행을 통해 아들러 심리학을 경험하며 성장을 실천하는 프로그램입니다.</p>
+      <p style="margin-top:12px;">지금 여기, 이미 충분한 마음자리를 향합니다.</p>
     </div>
 
     <div class="info-box">
-      <div class="info-row"><span class="info-label">일정</span><span class="info-value">2026년 5월 4일 ~ 7월 20일 (매주 월요일 저녁 7:30)</span></div>
-      <div class="info-row"><span class="info-label">진행</span><span class="info-value">온라인 줌(Zoom)</span></div>
+      <div class="info-row"><span class="info-label">일정</span><span class="info-value">2026년 5월 4일(월) ~ 7월 20일(월) (매주 월요일 오후 7시 30분 - 9시 30분)</span></div>
+      <div class="info-row"><span class="info-label">진행</span><span class="info-value">온라인 화상회의 줌(Zoom)</span></div>
+      <div class="info-row"><span class="info-label">강사</span><span class="info-value">김이수 (심리상담연구소 심지 소장, 아들러상담전문가)</span></div>
       <div class="info-row"><span class="info-label">준비물</span><span class="info-value">스텔라 타로카드 (개별지참)</span></div>
     </div>
 
     <div class="payment-box">
       <p class="p-label">참가비</p>
-      <p class="p-amount">35만원</p>
-      <p>농협 356-0249-5526-13 (예금주: 김이수)</p>
+      <p class="p-amount">350,000원</p>
+      <p class="p-account">농협 356-0249-5526-13 (김이수)</p>
     </div>
 
     <h2 class="session-title">프로그램 흐름</h2>
+    <p class="session-hint">옆으로 밀어서 확인하세요 →</p>
     <div class="session-scroll">
       <div class="session-card card-zero"><span class="sc-num">0회기</span><span class="sc-stage">오리엔테이션</span><span class="sc-name">초보 타로리더 되기</span></div>
       <div class="session-card"><span class="sc-num">1회기</span><span class="sc-stage">심우</span><span class="sc-name">변화하고 싶은 나</span></div>
-      <div class="session-card"><span class="sc-num">10회기</span><span class="sc-stage">입전수수</span><span class="sc-name">함께 날아가는 세상</span></div>
+      <div class="session-card"><span class="sc-num">2회기</span><span class="sc-stage">견적</span><span class="sc-name">목표를 향해 나아가기</span></div>
+      <div class="session-card"><span class="sc-num">10회기</span><span class="sc-stage">입전수수</span><span class="sc-name">함께 날아 아름다운 세상</span></div>
     </div>
   </div>
 
   <div class="section">
     <form id="applyForm" action="https://script.google.com/macros/s/AKfycby9kpVpJzOYYikKKuxHxzV-J_2iU5tgXG-NjFLX223nW3WPO7xmKTrzDfvdEaWRD4WS/exec" method="POST" target="hidden_iframe">
       <input type="hidden" name="program_name" value="나비프로그램">
-      
+
       <div class="form-group">
         <label>참가자 성명 <span class="required">*</span></label>
-        <input type="text" name="성함" placeholder="이름을 입력해주세요" required />
+        <input type="text" name="성함" placeholder="성함을 입력해주세요" required />
       </div>
 
       <div class="form-group">
@@ -115,26 +123,43 @@
       </div>
 
       <div class="form-group">
-        <label>타로 경험 <span class="required">*</span></label>
+        <label>이메일 주소 <span class="required">*</span></label>
+        <input type="email" name="이메일" placeholder="example@email.com" required />
+      </div>
+
+      <div class="form-group">
+        <label>타로를 활용한 경험이 있으신가요? <span class="required">*</span></label>
         <div class="radio-group">
-          <label class="radio-item"><input type="radio" name="타로경험" value="잘 활용함" required /><span>네, 잘 활용합니다</span></label>
-          <label class="radio-item"><input type="radio" name="타로경험" value="처음" /><span>처음 접합니다</span></label>
+          <label class="radio-item"><input type="radio" name="타로경험" value="잘 활용함" required /><span>네, 타로를 잘 활용할 수 있습니다</span></label>
+          <label class="radio-item"><input type="radio" name="타로경험" value="체험 경험" /><span>약간의 체험 경험이 있습니다</span></label>
+          <label class="radio-item"><input type="radio" name="타로경험" value="처음" /><span>타로는 처음 접합니다</span></label>
         </div>
       </div>
 
       <div class="form-group">
-        <label>참여 동기 <span class="optional">(선택)</span></label>
-        <textarea name="참여동기" placeholder="자유롭게 적어주세요"></textarea>
+        <label>심지의 새로운 소식을 받아보시겠습니까?</label>
+        <div class="checkbox-group">
+          <label class="check-item"><input type="checkbox" name="소식수신" value="심지 소식 구독" /><span>심지의 새로운 소식을 받아보겠습니다</span></label>
+          <label class="check-item"><input type="checkbox" name="이음이구독" value="이음이 구독" /><span>부모교육 소식지 '이음이'를 받아보겠습니다</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>참여 동기 및 바라는 점 <span class="optional">(선택)</span></label>
+        <textarea name="참여동기" placeholder="자유롭게 적어주세요."></textarea>
       </div>
 
       <button type="submit" id="submitBtn" class="submit-btn">신청서 제출하기</button>
     </form>
+    <p style="text-align:center; font-size:12px; color:var(--text-light); margin-top:20px;">
+      문의: <a href="mailto:simjimind@gmail.com" style="color:var(--terra)">simjimind@gmail.com</a> | 031-763-4948
+    </p>
   </div>
 </div>
 
 <footer>
-  <p>심리상담연구소 心地</p>
-  <p><a href="https://simjimind.co.kr">simjimind.co.kr</a></p>
+  <p class="footer-logo" style="font-size: 16px; margin-bottom: 8px; color: #FAF7F2;">심리상담연구소 心地</p>
+  <p>경기도 광주시 오포읍 | <a href="https://simjimind.co.kr">simjimind.co.kr</a></p>
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted){alert('신청이 완료되었습니다!'); location.reload();}"></iframe>
