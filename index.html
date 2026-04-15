@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── 트리님의 원본 디자인 (100% 동일) ── */
+    /* ── 트리님의 원본 디자인 코드 (100% 동일) ── */
     :root {
       --bg:         #FAF7F2;
       --section-bg: #F0EBE1;
@@ -186,6 +186,10 @@
 
     label { display: block; font-size: 13.5px; font-weight: 500; margin-bottom: 8px; }
 
+    .required { color: var(--terra); margin-left: 2px; }
+
+    .optional { font-size: 11px; color: var(--text-light); margin-left: 4px; font-weight: 300; }
+
     input[type="text"], input[type="tel"], input[type="email"], textarea {
       width: 100%;
       background: var(--input-bg);
@@ -195,7 +199,7 @@
       font-size: 14px;
     }
 
-    .radio-group { display: flex; flex-direction: column; gap: 10px; }
+    .radio-group { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 
     .radio-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
 
