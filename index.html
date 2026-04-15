@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    /* 디자인 코드는 트리님의 원본과 100% 동일합니다 (수정 없음) */
+    /* ── 트리님의 원본 디자인 (100% 동일) ── */
     :root {
       --bg:         #FAF7F2;
       --section-bg: #F0EBE1;
@@ -23,37 +23,207 @@
       --border:     #DDD0C0;
       --input-bg:   #FDFAF6;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text-main); font-family: 'Noto Sans KR', sans-serif; font-size: 15px; line-height: 1.75; }
-    .hero { background: linear-gradient(160deg, #2C1F14 0%, #5C3D2A 50%, #7A5540 100%); color: #FAF7F2; text-align: center; padding: 72px 24px 64px; position: relative; overflow: hidden; }
-    .hero-label { font-size: 12px; letter-spacing: 4px; color: var(--olive-light); text-transform: uppercase; margin-bottom: 20px; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
-    .hero-title { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 7vw, 52px); font-weight: 300; letter-spacing: -0.5px; line-height: 1.3; margin-bottom: 12px; }
-    .hero-title strong { font-weight: 600; color: #D4A882; }
-    .container { max-width: 600px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 48px 0; }
-    .intro-card { background: var(--section-bg); border-radius: 16px; padding: 32px 28px; margin: 40px 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #2C1F14 0%, #5C3D2A 50%, #7A5540 100%);
+      color: #FAF7F2;
+      text-align: center;
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(176,125,98,0.18);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(122,140,110,0.15);
+    }
+
+    .hero-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--olive-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      color: #D4A882;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(250,247,242,0.65);
+      font-weight: 300;
+      margin-top: 16px;
+      letter-spacing: 1px;
+    }
+
+    .butterfly {
+      font-size: 40px;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.2;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .intro-card {
+      background: var(--section-bg);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin: 40px 0;
+    }
+
+    .intro-card p {
+      color: var(--text-sub);
+      font-size: 14.5px;
+      line-height: 1.85;
+    }
+
+    .info-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 20px;
+      gap: 16px;
+      border-bottom: 1px solid #EDE4D8;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: var(--terra);
+      font-weight: 500;
+      min-width: 64px;
+    }
+
+    .info-value {
+      font-size: 14px;
+      color: var(--text-main);
+      flex: 1;
+    }
+
+    .session-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      color: var(--text-main);
+      margin: 36px 0 4px;
+    }
+
+    .session-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin: 0 -20px;
+      padding: 4px 20px 16px;
+    }
+
+    .session-card {
+      flex-shrink: 0;
+      width: 170px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .session-card.card-zero { border-color: var(--olive-light); background: #F5F7F2; }
+
     .form-group { margin-bottom: 24px; }
+
     label { display: block; font-size: 13.5px; font-weight: 500; margin-bottom: 8px; }
-    .required { color: var(--terra); margin-left: 2px; }
-    .optional { font-size: 11px; color: var(--text-light); margin-left: 4px; font-weight: 300; }
-    input[type="text"], input[type="tel"], input[type="email"], textarea { width: 100%; background: var(--input-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 13px 16px; font-size: 14px; font-family: inherit; transition: all 0.2s ease; }
-    input:focus, textarea:focus { outline: none; border-color: var(--terra); background: #FFF; box-shadow: 0 0 0 4px rgba(176,125,98,0.08); }
-    .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
-    .radio-item, .check-item { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 8px 12px; border-radius: 8px; border: 1px solid transparent; transition: all 0.2s; }
-    .radio-item:hover, .check-item:hover { background: rgba(176,125,98,0.04); border-color: rgba(176,125,98,0.1); }
-    input[type="radio"], input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--terra); cursor: pointer; }
-    .submit-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 12px; padding: 17px; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; margin-top: 12px; }
-    .submit-btn:hover { background: var(--terra-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(176,125,98,0.2); }
-    .submit-btn:disabled { background: var(--text-light); cursor: not-allowed; transform: none; }
+
+    input[type="text"], input[type="tel"], input[type="email"], textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 14px;
+    }
+
+    .radio-group { display: flex; flex-direction: column; gap: 10px; }
+
+    .radio-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+
+    .radio-item input { width: 18px; height: 18px; accent-color: var(--terra); margin-top: 2px; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--terra);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 17px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
     #hidden_iframe { display: none; }
-    footer { padding: 48px 24px; text-align: center; border-top: 1px solid var(--border); background: #F5F2EC; color: var(--text-light); font-size: 12px; }
+
+    footer { background: #2C1F14; color: rgba(250,247,242,0.55); text-align: center; padding: 36px 20px; font-size: 13px; }
   </style>
 </head>
 <body>
 
 <div class="hero">
+  <span class="butterfly">🦋</span>
   <p class="hero-label">심리상담연구소 심지 · 제 10기</p>
   <h1 class="hero-title">다시 태어나는 나,<br><strong>나비</strong></h1>
+  <p class="hero-sub">십우도 × 타로 × 아들러 심리학</p>
 </div>
 
 <div class="container">
@@ -96,10 +266,6 @@
 
       <button type="submit" id="submitBtn" class="submit-btn">신청서 제출하기</button>
     </form>
-
-    <p style="text-align:center; font-size:12px; color:var(--text-light); margin-top:20px;">
-      문의: <a href="mailto:simjimind@gmail.com" style="color:var(--terra); text-decoration:none;">simjimind@gmail.com</a>
-    </p>
   </div>
 </div>
 
@@ -107,7 +273,7 @@
   <p>심리상담연구소 心地</p>
 </footer>
 
-<iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted){alert('신청이 완료되었습니다! 확인 후 연락드리겠습니다.'); location.reload();}"></iframe>
+<iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted){alert('신청이 완료되었습니다!'); location.reload();}"></iframe>
 
 <script>
   var submitted = false;
