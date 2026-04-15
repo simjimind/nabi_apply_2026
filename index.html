@@ -480,7 +480,6 @@
 </head>
 <body>
 
-<!-- ── 히어로 헤더 ── -->
 <div class="hero">
   <span class="butterfly">🦋</span>
   <p class="hero-label">심리상담연구소 심지 · 제 10기</p>
@@ -488,7 +487,6 @@
   <p class="hero-sub">십우도 × 타로 × 아들러 심리학</p>
 </div>
 
-<!-- ── 소개 ── -->
 <div class="container">
   <div class="section">
 
@@ -497,7 +495,6 @@
       <p>지금 여기, 이미 충분한 마음자리를 향합니다.</p>
     </div>
 
-    <!-- 기본 정보 -->
     <div class="info-box">
       <div class="info-row">
         <span class="info-label">일정</span>
@@ -533,7 +530,6 @@
       </div>
     </div>
 
-    <!-- 참가비 -->
     <div class="payment-box">
       <p class="p-label">참가비</p>
       <p class="p-amount">35만원</p>
@@ -541,117 +537,89 @@
       <p class="p-note">* 입금 후 신청이 확정됩니다.</p>
     </div>
 
-    <!-- 회기 구성 -->
     <h2 class="session-title">프로그램 흐름</h2>
     <p class="session-hint">옆으로 스크롤해서 전체 11회기를 확인해보세요</p>
     <div class="session-scroll">
-
       <div class="session-card card-zero">
         <span class="sc-num">0회기</span>
         <span class="sc-stage">오리엔테이션</span>
         <span class="sc-name">초보 타로리더 되기</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">1회기</span>
         <span class="sc-stage">심우</span>
         <span class="sc-name">변화하고 싶은 나</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">2회기</span>
         <span class="sc-stage">견적</span>
         <span class="sc-name">어린시절의 나를 만나다</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">3회기</span>
         <span class="sc-stage">견우</span>
         <span class="sc-name">생활양식 탐색하기</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">4회기</span>
         <span class="sc-stage">득우</span>
         <span class="sc-name">풀고, 치유하고<br>흘려보내기</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">5회기</span>
         <span class="sc-stage">목우</span>
         <span class="sc-name">다시 날개를 펴다</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">6회기</span>
         <span class="sc-stage">기우귀가</span>
         <span class="sc-name">자유로운 창조의 힘</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">7회기</span>
         <span class="sc-stage">망주존인</span>
         <span class="sc-name">나의 시선으로 세상열기</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">8회기</span>
         <span class="sc-stage">인우구망</span>
         <span class="sc-name">내 삶의 길잡이 별</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">9회기</span>
         <span class="sc-stage">반본환원</span>
         <span class="sc-name">불완전할 용기</span>
       </div>
-
       <div class="session-card">
         <span class="sc-num">10회기</span>
         <span class="sc-stage">입전수수</span>
         <span class="sc-name">함께 날아 아름다운 세상</span>
       </div>
-
     </div>
 
-  </div><!-- /section -->
-
-  <!-- ── 신청 폼 ── -->
-  <div class="section">
+  </div><div class="section">
     <h2 class="form-section-title">신청하기</h2>
     <p class="form-section-desc">아래 내용을 작성해 주시면 확인 후 안내 메일을 드립니다.<br>신청 후 참가비 입금 시 최종 확정됩니다.</p>
 
-    <form
-      action="https://formsubmit.co/simjimind@gmail.com"
-      method="POST"
-    >
-      <input type="hidden" name="_subject" value="[나비 신청] 새 신청서가 도착했습니다" />
-      <input type="hidden" name="_next" value="https://simjimind.github.io/nabi_apply_2026/thanks.html" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="text" name="_honey" style="display:none" />
-      <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycby9kpVpJzOYYikKKuxHxzV-J_2iU5tgXG-NjFLX223nW3WPO7xmKTrzDfvdEaWRD4WS/exec" />
+    <form action="https://script.google.com/macros/s/AKfycbys-6nDNsIdVuOojKvvjJKIzK_zBoIMeE4rhKGX7I1hddH50lZxoM6_-HFqUmif7f4Z2A/exec" method="POST">
+      
+      <input type="hidden" name="program_name" value="나비프로그램">
 
-      <!-- 1. 이름 -->
       <div class="form-group">
         <label>참가자 성명 <span class="required">*</span></label>
-        <input type="text" name="이름" placeholder="이름을 입력해주세요" required />
+        <input type="text" name="성함" placeholder="이름을 입력해주세요" required />
       </div>
 
-      <!-- 2. 연락처 -->
       <div class="form-group">
         <label>연락처 <span class="required">*</span></label>
         <input type="tel" name="연락처" placeholder="010-0000-0000 (-없이 번호만 입력)" required />
       </div>
 
-      <!-- 3. 이메일 -->
       <div class="form-group">
         <label>이메일 <span class="required">*</span></label>
         <input type="email" name="이메일" placeholder="안내 메일을 받으실 이메일 주소" required />
-        <input type="hidden" name="_replyto" id="replyto" />
       </div>
 
-      <!-- 4. 타로 경험 -->
       <div class="form-group">
         <label>타로를 활용한 경험이 있으신가요? <span class="required">*</span></label>
         <div class="radio-group">
@@ -672,7 +640,6 @@
 
       <div class="divider"></div>
 
-      <!-- 5. 비밀유지 / 사례연구 동의 -->
       <div class="form-group">
         <label>프로그램 참여 동의 <span class="required">*</span></label>
         <div class="agree-box">
@@ -691,7 +658,6 @@
         </div>
       </div>
 
-      <!-- 6. 소식 수신 -->
       <div class="form-group">
         <label>소식 받아보기 <span class="optional">(선택)</span></label>
         <div class="checkbox-group">
@@ -706,13 +672,11 @@
         </div>
       </div>
 
-      <!-- 7. 참여 동기 -->
       <div class="form-group">
         <label>참여 동기 및 바라는 점 <span class="optional">(선택)</span></label>
         <textarea name="참여동기" placeholder="프로그램에 참여하게 된 동기나 기대하시는 점을 자유롭게 적어주세요."></textarea>
       </div>
 
-      <!-- 제출 -->
       <button type="submit" class="submit-btn">신청서 제출하기</button>
 
     </form>
@@ -722,11 +686,7 @@
       &nbsp;|&nbsp; 031-763-4948
     </p>
 
-  </div><!-- /section -->
-</div><!-- /container -->
-
-<!-- ── 푸터 ── -->
-<footer>
+  </div></div><footer>
   <p class="footer-logo">심리상담연구소 心地</p>
   <p>경기도 광주 &nbsp;|&nbsp; 031-763-4948</p>
   <p style="margin-top:6px">
@@ -735,12 +695,6 @@
     <a href="https://instagram.com/simjimind">@simjimind</a>
   </p>
 </footer>
-
-<script>
-  document.querySelector('input[name="이메일"]').addEventListener('input', function(){
-    document.getElementById('replyto').value = this.value;
-  });
-</script>
 
 </body>
 </html>
