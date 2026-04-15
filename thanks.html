@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신청이 완료되었습니다 — 다시 태어나는 나, 나비</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── 색상 변수 ── */
+    :root {
+      --bg:         #FAF7F2;
+      --section-bg: #F0EBE1;
+      --card-bg:    #FFFFFF;
+      --terra:      #B07D62;
+      --terra-dark: #8C6148;
+      --olive:      #7A8C6E;
+      --olive-light:#A8B89C;
+      --text-main:  #2C1F14;
+      --text-sub:   #6B5744;
+      --text-light: #9C8776;
+      --border:     #DDD0C0;
+      --input-bg:   #FDFAF6;
+      --success:    #6B8E6F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    /* ── 헤더 ── */
+    .hero {
+      background: linear-gradient(160deg, #2C1F14 0%, #5C3D2A 50%, #7A5540 100%);
+      color: #FAF7F2;
+      text-align: center;
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(176,125,98,0.18);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(122,140,110,0.15);
+    }
+
+    .hero-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--olive-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      color: #D4A882;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(250,247,242,0.65);
+      font-weight: 300;
+      margin-top: 16px;
+      letter-spacing: 1px;
+    }
+
+    /* 나비 심볼 */
+    .butterfly {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: block;
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ── 공통 컨테이너 ── */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── 섹션 ── */
+    .section {
+      padding: 32px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── 감사 카드 ── */
+    .thanks-card {
+      background: linear-gradient(135deg, #F5F9F7 0%, #F0EBE1 100%);
+      border: 2px solid var(--olive-light);
+      border-radius: 16px;
+      padding: 40px 28px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .thanks-card h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--success);
+      margin-bottom: 16px;
+    }
+
+    .thanks-card p {
+      color: var(--text-sub);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .thanks-card p + p {
+      margin-top: 12px;
+    }
+
+    /* ── 단계 박스 ── */
+    .step-box {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 32px 28px;
+      margin: 0;
+    }
+
+    .step-box h3 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--terra);
+      margin-bottom: 20px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--terra);
+      color: white;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .step-content strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    /* ── 정보 박스 ── */
+    .info-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 20px;
+      gap: 16px;
+      border-bottom: 1px solid #EDE4D8;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      font-size: 12px;
+      color: var(--terra);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      min-width: 64px;
+      padding-top: 1px;
+    }
+
+    .info-value {
+      font-size: 14px;
+      color: var(--text-main);
+      flex: 1;
+    }
+
+    /* ── 주의사항 ── */
+    .notice-box {
+      background: rgba(176,125,98,0.08);
+      border-left: 4px solid var(--terra);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 0;
+    }
+
+    .notice-box .notice-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--terra);
+      margin-bottom: 8px;
+    }
+
+    .notice-box p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* ── 버튼 ── */
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin: 28px 0 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--terra);
+      border: 2px solid var(--terra);
+    }
+
+    .btn-secondary:hover {
+      background: var(--terra);
+      color: white;
+    }
+
+    /* ── 푸터 ── */
+    footer {
+      background: #2C1F14;
+      color: rgba(250,247,242,0.55);
+      text-align: center;
+      padding: 36px 20px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--olive-light);
+      text-decoration: none;
+    }
+
+    footer .footer-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      color: rgba(250,247,242,0.85);
+      margin-bottom: 8px;
+    }
+
+    /* ── 체크마크 ── */
+    .checkmark {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: var(--success);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 14px;
+      margin-right: 6px;
+      font-weight: bold;
+    }
+
+    /* 모바일 */
+    @media (max-width: 480px) {
+      .hero { padding: 56px 20px 48px; }
+      .container { padding: 0 16px; }
+      .thanks-card { padding: 32px 20px; }
+      .step-box { padding: 24px 20px; }
+      .button-group { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── 히어로 헤더 ── -->
+<div class="hero">
+  <span class="butterfly">🦋</span>
+  <p class="hero-label">심리상담연구소 심지 · 제 10기</p>
+  <h1 class="hero-title">다시 태어나는 나, 나비</h1>
+  <p class="hero-sub">십우도 × 타로 × 아들러</p>
+</div>
+
+<!-- ── 감사 메시지 ── -->
+<div class="container">
+  <div class="section">
+
+    <div class="thanks-card">
+      <h2><span class="checkmark">✓</span>감사합니다!</h2>
+      <p>마음이 성장하는 여정에 함께하게 되어 반갑습니다.</p>
+      <p>함께 가는 동반자로서 정성을 다하겠습니다.</p>
+    </div>
+
+  </div><!-- /section -->
+
+  <!-- ── 다음 단계 ── -->
+  <div class="section">
+    <div class="step-box">
+      <h3>이제 이렇게 진행됩니다</h3>
+
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>신청 확인 메일 수신</strong>
+          <p>입력하신 이메일로 신청 확인 메일이 곧 발송됩니다. 메일함을 확인해주세요.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>참가비 입금</strong>
+          <p>35만원을 농협 356-0249-5526-13 (예금주: 김이수) 계좌로 입금해주세요.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>최종 확정 및 안내</strong>
+          <p>입금 확인 후 프로그램 최종 안내, 줌 링크, 준비물 정보 등이 발송됩니다.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>프로그램 시작</strong>
+          <p>2026년 5월 4일(월) 저녁 7:30에 만나요!</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /section -->
+
+  <!-- ── 신청 정보 요약 ── -->
+  <div class="section">
+    <h2 style="font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: var(--text-main); margin-bottom: 24px;">프로그램 정보</h2>
+
+    <div class="info-box">
+      <div class="info-row">
+        <span class="info-label">프로그램</span>
+        <span class="info-value">다시 태어나는 나, 나비 (제 10기)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">일정</span>
+        <span class="info-value">2026년 5월 4일(월) ~ 7월 20일(월)<br>매주 월요일 저녁 7:30 ~ 10:00</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">회기</span>
+        <span class="info-value">11회기 (5/25 석가탄신일 휴강)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">진행</span>
+        <span class="info-value">온라인 줌(Zoom)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">강사</span>
+        <span class="info-value">김이수 (심지 소장, 아들러전문상담사 1급)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">참가비</span>
+        <span class="info-value">35만원</span>
+      </div>
+    </div>
+  </div><!-- /section -->
+
+  <!-- ── 주의사항 ── -->
+  <div class="section">
+    <div class="notice-box">
+      <div class="notice-title">⚠ 꼭 확인해주세요</div>
+      <p><strong>• 준비물:</strong> 스텔라 타로카드 (참가자 구매) — <a href="https://product.kyobobook.co.kr/detail/S000001585245" target="_blank" style="color: var(--terra); text-decoration: underline;">교보문고에서 구입</a></p>
+      <p style="margin-top: 8px;"><strong>• 신청 마감:</strong> 2026년 5월 1일(금)</p>
+      <p style="margin-top: 8px;"><strong>• 신청 확정:</strong> 참가비 입금 후 최종 확정됩니다.</p>
+    </div>
+  </div>
+
+  <!-- ── 액션 버튼 ── -->
+  <div class="button-group">
+    <a href="https://simjimind.co.kr" class="btn btn-primary">홈페이지로 돌아가기</a>
+    <a href="mailto:simjimind@gmail.com" class="btn btn-secondary">문의하기</a>
+  </div>
+
+  <!-- ── 연락처 ── -->
+  <div class="section" style="text-align: center; border-top: none;">
+    <p style="font-size: 14px; color: var(--text-sub); line-height: 1.8;">
+      궁금한 점이 있으신가요?<br>
+      <strong>simjimind@gmail.com</strong> 또는 <strong>031-763-4948</strong>로<br>
+      언제든 연락주세요.
+    </p>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ── 푸터 ── -->
+<footer>
+  <p class="footer-logo">심리상담연구소 心地</p>
+  <p>경기도 광주 &nbsp;|&nbsp; 031-763-4948</p>
+  <p style="margin-top:6px">
+    <a href="https://simjimind.co.kr">simjimind.co.kr</a>
+    &nbsp;|&nbsp;
+    <a href="https://instagram.com/simjimind">@simjimind</a>
+  </p>
+</footer>
+
+</body>
+</html>
